@@ -24,7 +24,7 @@ class Deck(models.Model):
 
     def set_slug(self):
         if self.slug:
-        return
+            return
 
         base_slug = slugify(self.title)
         slug = base_slug
@@ -84,7 +84,7 @@ class Category(models.Model):
 
     def set_slug(self):
         if self.slug:
-        return
+            return
 
         base_slug = slugify(self.deck_category)
         slug = base_slug
@@ -128,7 +128,7 @@ class Review(models.Model):
 
     def set_slug(self):
         if self.slug:
-        return
+            return
 
         base_slug = slugify(self.review_title)
         slug = base_slug
