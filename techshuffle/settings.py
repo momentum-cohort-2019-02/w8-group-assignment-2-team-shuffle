@@ -131,3 +131,6 @@ STATIC_URL = '/static/'
 ACCOUNT_ACTIVATION_DAYS = 7
 LOGIN_REDIRECT_URL = "/"
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+#debug
+INTERNAL_IPS ='127.0.0.1'
