@@ -10,6 +10,8 @@ prospector = "*"
 django = "*"
 django-registration-redux = "*"
 psycopg2 = "*"
+django-debug-toolbar = "*"
+
 
 [requires]
 python_version = "3.7"
