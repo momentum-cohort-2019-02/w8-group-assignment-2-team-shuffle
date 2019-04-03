@@ -15,7 +15,7 @@ class Deck(models.Model):
         'Date Created', auto_now_add=True, null=True)
     category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True)
     """review deck equals false for public decks, review deck equals true for private decks"""
-    review_deck = models.BooleanField('Review Deck', default=False)
+    ownership = models.BooleanField('Ownership', default=False)
     # what other arguments need to go in here ^
     slug = models.SlugField(unique=True)
 
