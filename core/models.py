@@ -108,6 +108,5 @@ class Rate(models.Model):
     """ Model representing the "was this helpful" """
     is_helpful = models.NullBooleanField()
     deck = models.ForeignKey(Deck, on_delete=models.CASCADE, null=True,
-                             related_name='deck_rates')
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True,
-                                related_name='profile_rates')
+    related_name='deck_rates')
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, related_name='profile_rates')
