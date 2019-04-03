@@ -11,7 +11,7 @@ django = "*"
 django-registration-redux = "*"
 psycopg2 = "*"
 django-debug-toolbar = "*"
-
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
