@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.template.defaultfilters import slugify
 
 # Create your models here.
 
@@ -110,4 +111,3 @@ class Rate(models.Model):
                              related_name='deck_rates')
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True,
                                 related_name='profile_rates')
-
