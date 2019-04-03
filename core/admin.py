@@ -1,15 +1,13 @@
 from django.contrib import admin
-from core.models import Deck, Card, Profile, Rate, Review, Category 
+from core.models import Deck, Card, Profile, Rate, Category 
 # Register your models here.
 
-admin.site.Register(Deck)
+admin.site.register(Deck)
 
-admin.site.Register(Card)
+admin.site.register(Card)
 
-admin.site.Register(Profile)
+admin.site.register(Profile)
 
-admin.site.Register(Rate)
+admin.site.register(Rate)
 
-admin.site.Register(Review)
-
-admin.site.Register(Category)
+admin.site.register(Category)
