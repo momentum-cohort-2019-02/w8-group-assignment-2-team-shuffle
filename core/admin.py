@@ -1,5 +1,5 @@
 from django.contrib import admin
-from core.models import Deck, Card, Profile, Rate, Review, Category 
+from core.models import Deck, Card, Profile, Rate, Category 
 # Register your models here.
 @admin.register(Deck)
 class DeckAdmin(admin.ModelAdmin):
@@ -20,3 +20,4 @@ class RateAdmin(admin.ModelAdmin):
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     pass
+

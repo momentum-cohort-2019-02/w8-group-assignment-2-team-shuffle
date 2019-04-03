@@ -14,6 +14,9 @@ class Deck(models.Model):
         'Profile', on_delete=models.SET_NULL, null=True)
     date_created = models.DateTimeField(
         'Date Created', auto_now_add=True, null=True)
+    category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True)
+    """review deck equals false for public decks, review deck equals true for private decks"""
+    ownership = models.BooleanField('Ownership', default=False)
     # what other arguments need to go in here ^
     slug = models.SlugField(unique=True)
 
@@ -46,7 +49,7 @@ class Deck(models.Model):
 
 class Card(models.Model):
     """ Model representing a Card"""
-    deck = models.ForeignKey(Deck, on_delete=models.CASCADE)
+    decks = models.ManyToManyField(to=Deck, related_name="cards")
     question = models.TextField(max_length=2000, help_text="Question")
     answer = models.TextField(max_length=2000, help_text="Answer")
     url = models.URLField(null=True, blank=True, help_text="Helpful link")
@@ -72,9 +75,6 @@ class Profile(models.Model):
 class Category(models.Model):
     """ Model representing a Catergory"""
     deck_category = models.CharField(max_length=200)
-    # find a way to make a drop menu to choose Category
-    deck = models.ForeignKey(
-        Deck, related_name='categories', on_delete=models.CASCADE)
     slug = models.SlugField(unique=True)
 
 
@@ -106,37 +106,8 @@ class Category(models.Model):
 
 class Rate(models.Model):
     """ Model representing the "was this helpful" """
+    is_helpful = models.NullBooleanField()
     deck = models.ForeignKey(Deck, on_delete=models.CASCADE, null=True,
                              related_name='deck_rates')
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True,
                                 related_name='profile_rates')
-
-
-class Review(models.Model):
-    """ This Model represnts the review deck """
-    reviewer = models.ForeignKey(Profile, related_name='reviewers', on_delete=models.SET_NULL, blank=True, null=True)
-    review_card = models.ForeignKey(Card, on_delete=models.SET_NULL, related_name='card_review', null=True)
-    review_title = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(unique=True)
-
-
-    def save(self, *args, **kwargs):
-        self.set_slug()
-        super().save(*args, **kwargs)
-
-
-    def set_slug(self):
-        if self.slug:
-            return
-
-        base_slug = slugify(self.review_title)
-        slug = base_slug
-        n = 0
-
-        while Review.objects.filter(slug=slug).count():
-            n += 1
-            slug = base_slug + "-" + str(n)
-
-
-    def get_absolute_url(self):
-        return reverse('review_list', args=[str(self.slug)])
