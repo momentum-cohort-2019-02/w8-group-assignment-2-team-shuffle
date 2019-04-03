@@ -1,15 +1,22 @@
 from django.contrib import admin
 from core.models import Deck, Card, Profile, Rate, Review, Category 
 # Register your models here.
+@admin.register(Deck)
+class DeckAdmin(admin.ModelAdmin):
+    pass
 
-admin.site.register(Deck)
+@admin.register(Card)
+class CardAdmin(admin.ModelAdmin):
+    pass
 
-admin.site.register(Card)
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    pass
 
-admin.site.register(Profile)
+@admin.register(Rate)
+class RateAdmin(admin.ModelAdmin):
+    pass
 
-admin.site.register(Rate)
-
-admin.site.register(Review)
-
-admin.site.register(Category)
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    pass
