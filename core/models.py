@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.template.defaultfilters import slugify
 
 # Create your models here.
 
@@ -113,10 +114,8 @@ class Rate(models.Model):
 
 class Review(models.Model):
     """ This Model represnts the review deck """
-    reviewer = models.ForeignKey(
-        Profile, related_name='reviewers', on_delete=models.SET_NULL, blank=True, null=True)
-    review_card = models.ForeignKey(
-        Card, on_delete=models.SET_NULL, related_name='card_review')
+    reviewer = models.ForeignKey(Profile, related_name='reviewers', on_delete=models.SET_NULL, blank=True, null=True)
+    review_card = models.ForeignKey(Card, on_delete=models.SET_NULL, related_name='card_review', null=True)
     review_title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(unique=True)
 
