@@ -1,4 +1,4 @@
-from genart.settings import *
+from techshuffle.settings import *
 
 import django_heroku
 
