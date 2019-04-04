@@ -22,7 +22,8 @@ from core import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.default.urls')),
-    path('createdeck/', views.create_Deck, name='new_deck'),
+    path('createdeck/', views.create_Deck, name = 'new_deck'),
+    path('', views.home, name="home")
 
 ]
 
