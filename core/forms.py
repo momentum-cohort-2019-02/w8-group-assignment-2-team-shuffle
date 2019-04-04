@@ -32,5 +32,5 @@ class NewCardForm(forms.ModelForm):
        )
     
     class Meta:
-        model = Post
-        fields = ['destination', 'site_name', 'description', 'url']
+        model = Card
+        fields = ['deck', 'question', 'answer', 'url']
