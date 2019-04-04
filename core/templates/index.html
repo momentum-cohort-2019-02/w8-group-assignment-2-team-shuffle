@@ -1,15 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-
-{% if decks %}
-{% for deck in decks %}
-<h1> Most Helpful Decks!</h1>
-
-{% endfor %}
-{% else %}
-{% endif %}
+<div>
+    <h1> Most Helpful Decks!</h1>
+    <div class="deck-package">
+    {% if decks %}
+        <div class="one-deck">
+            {% for deck in decks %}
+            <h2 class="deck-item" id="deck-title">{{deck.title}}</h2>
+            <p class="deck-item" id="deck-created_by">{{deck.created_by}}</p>
+            <p class="deck-item" id="deck-created_on">{{deck.created_on}}</p>
+            <p class="deck-item" id="deck-category">{{deck.category}}</p>
+            {% endfor %}
+        </div>
+    {% else %}
+    <p>The decks are not connecting. :(. </p>
+    {% endif %}
+    </div>
 </div>
-{% endblock %}Z
-<div> </div>
+{% endblock %}
+
