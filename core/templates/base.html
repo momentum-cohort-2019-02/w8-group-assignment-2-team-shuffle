@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {% meta block %}
-    <title>techShuffle</title>
+    {% block meta%}{% endblock %}
+    {% block title %}<title>techShuffle</title>{% endblock %}
 </head>
+
 <body>
     <header class="header">
         <img src="logo">
@@ -15,13 +17,31 @@
             <p id="company-slogan">shuffle into dev interviews</p>
         </div>
     </header>
-    <nav>
-        <ul>
-            <li>Home</li>
-            <li>Profile</li>
-            <li></li>
-            <li></li>
+    <div class="content">
+        {% block sidebar %}
+        <ul class="sidebar-nav">
+            <li id="home">Home<a href=""></a></li>
+            {% if request.user.is_authenticated %}
+            <li id="profile">Profile {{ profile.user }}<a href=""></a></li>
+            <li class="log"><a href="{% url 'auth_logout' %}">Logout</a></li>
+            {% else %}
+            <li class="log"><a href="{% url 'auth_login' %}">Register/Login</a></li>
+            {% endif %}
+            <ul class="category-list">
+                <li id="category-heading">Category<a href=""></a></li>
+                <li class="category"><a href="">Python</a></li>
+                <li class="category"><a href="">Django</a></li>
+                <li class="category"><a href="">CSS</a></li>
+                <li class="category"><a href="">JS</a></li>
+                <li class="category"><a href="">HTML</a></li>
+                <li class="category"><a href="">General</a></li>
+            </ul>
         </ul>
-    </nav>
+        {% endblock %}
+        <div class="block-content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
 </body>
+
 </html>
