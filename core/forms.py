@@ -1,5 +1,6 @@
 from django.forms import ModelForm
-from .models import Deck
+from .models import Deck, Card
+from django import forms
 
 class DeckForm(ModelForm):
     '''
@@ -10,7 +11,7 @@ class DeckForm(ModelForm):
         fields = ['title', 'created_by'] 
 
 class NewCardForm(forms.ModelForm):
-    decks = forms.CharField(
+    deck = forms.CharField(
         label='deck',
         max_length=200,
         widget=forms.TextInput(attrs={'placeholder': 'add deck name'}))
