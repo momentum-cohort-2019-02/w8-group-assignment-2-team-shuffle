@@ -22,10 +22,13 @@ from core import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.default.urls')),
-    path('createdeck/', views.create_Deck, name = 'new_deck'),
+
     path('', views.home, name="home")
 
+    path('createdeck/', views.create_Deck, name='new_deck'),
+    path('createcard/', views.create_Card, name='new_card'),
 ]
+
 
 if settings.DEBUG:
     import debug_toolbar
