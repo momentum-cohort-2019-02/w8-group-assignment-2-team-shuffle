@@ -1,6 +1,7 @@
+
 from django.shortcuts import get_object_or_404, HttpResponseRedirect, render, redirect
 from core.models import Deck, Card, Category, Rate, Profile
-from core.forms import DeckForm
+from core.forms import DeckForm, NewCardForm
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 
@@ -36,3 +37,19 @@ def create_Deck(request):
     else:
         form = PostForm()
     return render(request, 'core/create_deck.html', {'form': form})
+
+
+def create_Card(request):
+    if request.method == "POST":
+        form = NewCardForm(request.POST)
+        if form.is_valid():
+            card = form.save(commit=False)
+            card.save()
+            return redirect('core-profile')
+    else:
+        form = PostForm()
+    return render(request, 'core/profile.html', {'form': form})
+
+
+
+    
