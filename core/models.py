@@ -40,7 +40,7 @@ class Deck(models.Model):
 
 
     def __str__(self):
-        return self.title
+        return str(self.title)
 
 
     def get_absolute_url(self):
@@ -56,7 +56,7 @@ class Card(models.Model):
 
 
     def __str__(self):
-        return self.question
+        return str(self.question)
 
 
 class Profile(models.Model):
@@ -65,7 +65,7 @@ class Profile(models.Model):
 
 
     def __str__(self):
-        return self.user
+        return str(self.user)
 
 
     def get_absolute_url(self):
@@ -97,7 +97,7 @@ class Category(models.Model):
 
 
     def __str__(self):
-        return self.deck_category
+        return str(self.deck_category)
 
 
     def get_absolute_url(self):
