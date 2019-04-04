@@ -110,3 +110,6 @@ class Rate(models.Model):
     deck = models.ForeignKey(Deck, on_delete=models.CASCADE, null=True,
     related_name='deck_rates')
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, related_name='profile_rates')
+
+
+# this is a comment
