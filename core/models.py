@@ -53,6 +53,8 @@ class Card(models.Model):
     question = models.TextField(max_length=2000, help_text="Question")
     answer = models.TextField(max_length=2000, help_text="Answer")
     url = models.URLField(null=True, blank=True, help_text="Helpful link")
+    answered_correctly = models.BooleanField("Answered correctly", default=False)
+
 
 
     def __str__(self):
