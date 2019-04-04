@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<h1 id="profile-user-name">{{ user }}'s decks</h1>
+{% if user %}
+    {% if decks %}
+        {% for deck in decks %}
+            {% if decks.created_by == user %}
+            <div class="one-deck">
+                    <h2 class="deck-item" id="deck-title">{{deck.title}}</h2>
+                    <p class="deck-item" id="deck-created_by">{{deck.created_by}}</p>
+                    <p class="deck-item" id="deck-created_on">{{deck.created_on}}</p>
+                    <p class="deck-item" id="deck-category">{{deck.category}}</p>
+            </div>
+            {% else %}
+            <p>This aint working</p>
+            {% endif %}
+        {% endfor %}    
+    {% endif %}
+{% else %}
+<p>there is no user</p>
+{% endif %}
+{% endblock %}

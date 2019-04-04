@@ -38,6 +38,7 @@ def create_Deck(request):
         form = PostForm()
     return render(request, 'core/create_deck.html', {'form': form})
 
+<<<<<<< Updated upstream
 
 def create_Card(request):
     if request.method == "POST":
@@ -53,3 +54,19 @@ def create_Card(request):
 
 
     
+=======
+@login_required
+def profile(request):
+    decks = Deck.objects.all()
+    profiles = Profile.objects.all()
+    paginator = Paginator(decks, 10)
+    page = request.GET.get('page', 1)
+    decks = paginator.get_page(page)
+
+
+    context = {
+        'decks': decks,
+        'profiles': profiles,
+    }
+    return render(request, 'profile.html', context=context)
+>>>>>>> Stashed changes

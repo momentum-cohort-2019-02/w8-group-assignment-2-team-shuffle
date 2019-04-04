@@ -103,7 +103,7 @@ class Category(models.Model):
 
 
     def get_absolute_url(self):
-        return reverse('category_list', args=[str(self.slug)])
+        return reverse('home', args=[str(self.slug)])
 
 
 class Rate(models.Model):
