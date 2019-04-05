@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ category }} decks</h1>
+    {% if decks %}
+        {% for deck in decks %}
+            <div class="one-deck">
+                    <h2 class="deck-item" id="deck-title">{{deck.title}}</h2>
+                    <p class="deck-item" id="deck-created_by">{{deck.created_by}}</p>
+                    <p class="deck-item" id="deck-created_on">{{deck.created_on}}</p>
+                    <p class="deck-item" id="deck-category">{{deck.category}}</p>
+            </div>
+        {% endfor %}    
+    {% else %}
+    <p>There are no decks in {{ category.deck_category }} category.</p>
+    {% endif %}
+{% endblock %}

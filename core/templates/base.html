@@ -34,7 +34,7 @@
                 <ul class="category-list">
                     {% if categories %}
                         {% for category in categories%}
-                        <li class="category"><a href="">{{category.deck_category}}</a></li>
+                        <li class="category"><a href="{% url 'category' slug=category.slug %}">{{category.deck_category}}</a></li>
                         {% endfor %}
                     {% endif %}
                 </ul>

@@ -12,5 +12,6 @@ urlpatterns = [
     path('createdeck/createcard/', views.createCard, name='new_card'),
     path('profile/', views.profile, name='profile'),
     path('viewcard/', views.viewcard, name='viewcard')
+    path('category/<slug:slug>', views.category,name='category'),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.urls import reverse
 from django.db.models import Q
-
+from django.views.generic.detail import DetailView
 
 
 # Create your views here.
@@ -47,7 +47,6 @@ def createDeck(request):
     else:
         form = DeckForm()
     return render(request, 'create_deck.html', {'form': form})
-    
 
 def createCard(request):
     
@@ -70,7 +69,6 @@ def profile(request):
     page = request.GET.get('page', 1)
     decks = paginator.get_page(page)
 
-
     context = {
         'decks': decks,
         'profile': profile,
@@ -82,4 +80,15 @@ def viewcard(request):
     context = {'deck': Deck.objects.all()}
 
     return render(request,'viewCard.html', context)
-  
+
+def category(request, slug):
+    category = Category.objects.get(slug=slug)
+    decks = Deck.objects.filter(category=category)
+    paginator = Paginator(decks, 10)
+    page = request.GET.get('page', 1)
+    decks = paginator.get_page(page)
+    context = {
+        'decks': decks,
+        'category': category,
+    }
+    return render(request, 'category_view.html', context=context)
