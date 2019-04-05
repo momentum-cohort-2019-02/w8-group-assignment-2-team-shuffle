@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<p> Create a new Deck:</p>
 <form method="POST">
   {% csrf_token %}
   <table>
     {{ form.as_table }}
   </table>
-<input type="submit" value="Submit Form">
+<input type="submit" value="Create Deck ">
 </form>
 
 {% if edit_mode %}
