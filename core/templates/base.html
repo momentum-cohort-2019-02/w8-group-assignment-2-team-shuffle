@@ -12,7 +12,7 @@
 
 <body>
     <header class="header">
-        <img id="logo" src="static/techShuffle.png">
+        <img id="logo" src="core/static/techShuffle.png">
         <div class="company-logo">
             <h1 id="company-name">techShuffle</h1>
             <p id="company-slogan">shuffle into dev interviews</p>
@@ -21,9 +21,9 @@
     <div class="content">
         {% block sidebar %}
         <ul class="sidebar-nav">
-            <li id="home">Home<a href="{% url 'home' %}"></a></li>
+            <li id="home"><a href="{% url 'home' %}">Home</a></li>
             {% if request.user.is_authenticated %}
-            <li id="profile">Profile {{ profile.user }}<a href="{% url 'profile' %}"></a></li>
+            <li id="profile"><a href="{% url 'profile' %}">Profile {{ profile.user }}</a></li>
             <li class="log"><a href="{% url 'auth_logout' %}">Logout</a></li>
             {% else %}
             <li class="log"><a href="{% url 'auth_login' %}">Register/Login</a></li>
