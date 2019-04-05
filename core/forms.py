@@ -8,30 +8,33 @@ class DeckForm(ModelForm):
     '''
     class Meta:
         model = Deck
-        fields = ['title', 'created_by'] 
+        fields = ['title', 'created_by','category', 'ownership'] 
+        
+
+
 
 class NewCardForm(forms.ModelForm):
-    deck = forms.CharField(
-        label='deck',
-        max_length=200,
-        widget=forms.TextInput(attrs={'placeholder': 'add deck name'}))
+    # deck = forms.CharField(
+    #     label='deck',
+    #     max_length=200,
+    #     widget=forms.TextInput(attrs={'placeholder': 'add deck name'}))
 
-    question = forms.CharField(
-        label='question',
-        max_length=200,
-        widget=forms.TextInput(attrs={'placeholder': 'add question'}))
+    # question = forms.CharField(
+    #     label='question',
+    #     max_length=200,
+    #     widget=forms.TextInput(attrs={'placeholder': 'add question'}))
    
-    answer = forms.CharField(
-        label='answer',
-        max_length=200,
-        widget=forms.TextInput(attrs={'placeholder': 'add answer'}))
+    # answer = forms.CharField(
+    #     label='answer',
+    #     max_length=200,
+    #     widget=forms.TextInput(attrs={'placeholder': 'add answer'}))
     
-    url = forms.URLField(
-        label='url',
-        max_length=200,
+    # url = forms.URLField(
+    #     label='url',
+    #     max_length=200,
 
-       )
+    #    )
     
     class Meta:
         model = Card
-        fields = ['deck', 'question', 'answer', 'url']
+        fields = ['question', 'answer','url', 'deck']

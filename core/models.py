@@ -49,7 +49,7 @@ class Deck(models.Model):
 
 class Card(models.Model):
     """ Model representing a Card"""
-    decks = models.ManyToManyField(to=Deck, related_name="cards")
+    deck = models.ForeignKey(to=Deck, related_name="cards", on_delete=models.CASCADE)
     question = models.TextField(max_length=2000, help_text="Question")
     answer = models.TextField(max_length=2000, help_text="Answer")
     url = models.URLField(null=True, blank=True, help_text="Helpful link")

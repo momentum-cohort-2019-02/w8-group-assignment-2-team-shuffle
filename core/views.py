@@ -49,15 +49,17 @@ def createDeck(request):
     return render(request, 'create_deck.html', {'form': form})
 
 def createCard(request):
+    
     if request.method == "POST":
         form = NewCardForm(request.POST)
         if form.is_valid():
-            card = form.save(commit=False)
+            card = form.save()
+            # card.deck = 
             card.save()
-            return redirect('core-profile')
+            return redirect('profile')
     else:
-        form = PostForm()
-    return render(request, 'core/profile.html', {'form': form})
+        form = NewCardForm()
+    return render(request, 'card.html', {'form': form})
 
 @login_required
 def profile(request):
@@ -72,7 +74,12 @@ def profile(request):
         'profile': profile,
     }
     return render(request, 'profile.html', context=context)
-    
+
+def viewcard(request):
+    model = Card
+    context = {'deck': Deck.objects.all()}
+
+    return render(request,'viewCard.html', context)
 
 def category(request, slug):
     category = Category.objects.get(slug=slug)
