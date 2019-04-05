@@ -74,3 +74,15 @@ def profile(request):
         'profile': profile,
     }
     return render(request, 'profile.html', context=context)
+
+def category(request):
+    categories = Category.objects.all(category=category.deck_category)
+    decks = Deck.objects.filter(category=category)
+    paginator = Paginator(decks, 10)
+    page = request.GET.get('page', 1)
+    decks = paginator.get_page(page)
+    context = {
+        'decks': decks,
+        'categories': categories,
+    }
+    return render(request, 'category_view.html', context=context)
