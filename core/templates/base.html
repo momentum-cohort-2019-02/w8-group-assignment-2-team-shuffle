@@ -20,21 +20,23 @@
     </header>
     <div class="content">
         {% block sidebar %}
-        <ul class="sidebar-nav">
-            <li id="home"><a href="{% url 'home' %}">Home</a></li>
+        <ul class="topbar-nav nav-menu">
+            <li id="home" class="nav-bar-item"><a href="{% url 'home' %}">Home</a></li>
             {% if request.user.is_authenticated %}
-            <li id="profile"><a href="{% url 'profile' %}">Profile {{ profile.user }}</a></li>
-            <li class="log"><a href="{% url 'auth_logout' %}">Logout</a></li>
+            <li id="profile" class="nav-bar-item"><a href="{% url 'profile' %}">Profile {{ profile.user }}</a></li>
+            <li class="log nav-bar-item"><a href="{% url 'auth_logout' %}">Logout</a></li>
             {% else %}
-            <li class="log"><a href="{% url 'auth_login' %}">Register/Login</a></li>
+            <li class="log nav-bar-item"><a href="{% url 'auth_login' %}">Register/Login</a></li>
             {% endif %}
-            <ul class="category-list"> Category
-                {% if categories %}
-                    {% for category in categories%}
-                    <li class="category"><a href="">{{category.deck_category}}</a></li>
-                    {% endfor %}
-                {% endif %}
-            </ul>
+            <li id="category" nav-bar-item>Category
+                <ul class="category-list">
+                    {% if categories %}
+                        {% for category in categories%}
+                        <li class="category"><a href="">{{category.deck_category}}</a></li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </li>
         </ul>
         {% endblock %}
         <div class="block-content">
