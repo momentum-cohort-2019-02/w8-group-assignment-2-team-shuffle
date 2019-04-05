@@ -16,15 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
+from django.views.generic import RedirectView
 from core import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.default.urls')),
-    path('createdeck/', views.create_Deck, name = 'new_deck'),
-    path('', views.home, name="home")
+]
 
+urlpatterns += [
+    path('core/', include('core.urls')),
+    path('', RedirectView.as_view(url='/core/', permanent=True)),
 ]
 
 if settings.DEBUG:
