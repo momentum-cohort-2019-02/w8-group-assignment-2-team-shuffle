@@ -36,3 +36,15 @@ def create_Deck(request):
     else:
         form = PostForm()
     return render(request, 'core/create_deck.html', {'form': form})
+
+def create_Card(request):
+    if request.method == "POST":
+        form = NewCardForm(request.POST)
+        if form.is_valid():
+            card = form.save(commit=False)
+            card.save()
+            return redirect('core-profile')
+    else:
+        form = PostForm()
+    return render(request, 'core/profile.html', {'form': form})
+    
