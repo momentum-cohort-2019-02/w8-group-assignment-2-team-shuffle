@@ -8,8 +8,6 @@ from django.conf.urls import url
 urlpatterns = [
     path('', views.home, name='home'),
     path('createdeck/', views.createDeck, name='new_deck'),
-    path('createcard/', views.createCard, name='new_card')
-
+    path('createcard/', views.createCard, name='new_card'),
+    path('profile/', views.profile, name='profile'),
 ]
-
- 

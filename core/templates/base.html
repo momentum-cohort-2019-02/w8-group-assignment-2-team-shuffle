@@ -21,21 +21,19 @@
     <div class="content">
         {% block sidebar %}
         <ul class="sidebar-nav">
-            <li id="home">Home<a href=""></a></li>
+            <li id="home">Home<a href="{% url 'home' %}"></a></li>
             {% if request.user.is_authenticated %}
-            <li id="profile">Profile {{ profile.user }}<a href=""></a></li>
+            <li id="profile">Profile {{ profile.user }}<a href="{% url 'profile' %}"></a></li>
             <li class="log"><a href="{% url 'auth_logout' %}">Logout</a></li>
             {% else %}
             <li class="log"><a href="{% url 'auth_login' %}">Register/Login</a></li>
             {% endif %}
-            <ul class="category-list">
-                <li id="category-heading">Category<a href=""></a></li>
-                <li class="category"><a href="">Python</a></li>
-                <li class="category"><a href="">Django</a></li>
-                <li class="category"><a href="">CSS</a></li>
-                <li class="category"><a href="">JS</a></li>
-                <li class="category"><a href="">HTML</a></li>
-                <li class="category"><a href="">General</a></li>
+            <ul class="category-list"> Category
+                {% if categories %}
+                    {% for category in categories%}
+                    <li class="category"><a href="">{{category.deck_category}}</a></li>
+                    {% endfor %}
+                {% endif %}
             </ul>
         </ul>
         {% endblock %}

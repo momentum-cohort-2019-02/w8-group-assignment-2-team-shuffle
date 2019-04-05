@@ -60,3 +60,17 @@ def createCard(request):
         form = PostForm()
     return render(request, 'core/profile.html', {'form': form})
 
+@login_required
+def profile(request):
+    decks = Deck.objects.all()
+    profiles = Profile.objects.all()
+    paginator = Paginator(decks, 10)
+    page = request.GET.get('page', 1)
+    decks = paginator.get_page(page)
+
+
+    context = {
+        'decks': decks,
+        'profiles': profiles,
+    }
+    return render(request, 'profile.html', context=context)
