@@ -18,7 +18,7 @@ class Deck(models.Model):
     """review deck equals false for public decks, review deck equals true for private decks"""
     ownership = models.BooleanField('Ownership', default=False)
     # what other arguments need to go in here ^
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True, null=True)
 
 
     def save(self, *args, **kwargs):
