@@ -36,7 +36,6 @@ def home(request):
     return render(request, 'index.html', context=context)
 
 def createDeck(request):
-
     if request.method == "POST":
         form = DeckForm(request.POST)
         if form.is_valid():
