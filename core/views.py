@@ -43,6 +43,8 @@ def createDeck(request):
             return redirect('core/deck')
     else:
         form = PostForm()
+
+
     return render(request, 'core/home', {'form': form})
 
 
@@ -52,11 +54,8 @@ def createCard(request):
         if form.is_valid():
             card = form.save(commit=False)
             card.save()
-            return redirect('core/home')
+            return redirect('core-profile')
     else:
         form = PostForm()
-    return render(request, 'core/home', {'form': form})
-
-
-
+    return render(request, 'core/profile.html', {'form': form})
     
