@@ -1,0 +1,14 @@
+% extends "base.html" %}
+{% block content %}
+
+<p>You must be logged in to crate a card.</p>
+<center><h2 class=card_view>new card</h2></center><br>
+
+{% if user.is_authenticated %}<form method="POST" action="{% url 'new_card' %}">
+  {% csrf_token %}
+  {{ card_form.as_p }}
+  <button type="submit">Add card</button>
+</form> 
+
+{% endif %}
+{% endblock %}
