@@ -22,7 +22,6 @@ from core import views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('createdeck/', views.create_Deck, name='createdeck'),
     path('', views.home, name='home'),
 
    path('admin/', admin.site.urls),
