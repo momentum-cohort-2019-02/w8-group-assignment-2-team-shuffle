@@ -8,7 +8,7 @@ class DeckForm(ModelForm):
     '''
     class Meta:
         model = Deck
-        fields = ['title', 'created_by'] 
+        fields = ['title', 'created_by','category',] 
 
 class NewCardForm(forms.ModelForm):
     deck = forms.CharField(

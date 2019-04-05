@@ -57,8 +57,8 @@ def createCard(request):
             card.save()
             return redirect('core-profile')
     else:
-        form = PostForm()
-    return render(request, 'core/profile.html', {'form': form})
+        form = NewCardForm()
+    return render(request, 'profile.html', {'form': form})
 
 @login_required
 def profile(request):
