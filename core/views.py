@@ -3,6 +3,7 @@ from core.models import Deck, Card, Category, Rate, Profile
 from core.forms import DeckForm
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from django.urls import reverse
 
 
 # Create your views here.
@@ -27,12 +28,15 @@ def home(request):
 
 
 def create_Deck(request):
+    
     if request.method == "POST":
         form = DeckForm(request.POST)
         if form.is_valid():
             deck = form.save(commit=False)
+            created_by = request.user
             deck.save()
-            return redirect('core-home')
+            return HttpResponseRedirect(reverse('home'))
     else:
-        form = PostForm()
-    return render(request, 'core/create_deck.html', {'form': form})
+        form = DeckForm()
+    return render(request, 'create_deck.html', {'form': form})
+    
