@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{{deck_obj}}</h1>
-<hr>
-{% if card_obj %}
-  <p>{{card_front}}</p>
-  <p>{{card_back}}</p>
-{% else %}
-<p> place holder text </p>
+
+{% if cards %}
+
+{% for card in cards %}
+<h2> {{card.question}} </h2>
+  <h2> {{card.answer}}/h2>
+
+{% endfor %}
+
+
+<p>The cards  are not connecting. :(. </p>
+
 {% endif %}
 
 {% endblock %}

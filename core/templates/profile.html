@@ -5,7 +5,7 @@
 {% if user %}
     {% if decks %}
         {% for deck in decks %}
-            {% if decks.created_by == user %}
+            {% if decks.created_by == Profile %}
             <div class="one-deck">
                     <h2 class="deck-item" id="deck-title">{{deck.title}}</h2>
                     <p class="deck-item" id="deck-created_by">{{deck.created_by}}</p>
