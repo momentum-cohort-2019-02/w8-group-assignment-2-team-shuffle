@@ -21,6 +21,7 @@ from core import views
 
 
 urlpatterns = [
+
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.default.urls')),
     path('', views.home, name='home'),
@@ -32,6 +33,7 @@ urlpatterns = [
 urlpatterns += [
     path('core/', include('core.urls')),
     path('', RedirectView.as_view(url='/core/', permanent=True)),
+
 ]
 
 if settings.DEBUG:
