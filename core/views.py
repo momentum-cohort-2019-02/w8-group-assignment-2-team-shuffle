@@ -11,9 +11,10 @@ from django.db.models import Q
 def home(request):
     decks = Deck.objects.filter()
     if request.user.is_authenticated:
-        # profile = Profile.objects.get(user__username=request.user.username)
+        #if logged in, you see your owned decks (private to you) plus decks that are not owned by anyone else (public decks)
         decks = Deck.objects.filter((Q(created_by__user=request.user) & Q(ownership=True)) | Q(ownership=False))
     else:
+        #if not logged in, you see all decks that are not owned (public decks only)
         decks = Deck.objects.filter(ownership=False)
     categories = Category.objects.all()
     rates = Rate.objects.all()
