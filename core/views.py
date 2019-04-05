@@ -64,8 +64,8 @@ def createCard(request):
 
 @login_required
 def profile(request):
-    decks = Deck.objects.all()
-    profiles = Profile.objects.all()
+    profile = Profile.objects.get(user=request.user)
+    decks = Deck.objects.filter(created_by=profile)
     paginator = Paginator(decks, 10)
     page = request.GET.get('page', 1)
     decks = paginator.get_page(page)
@@ -73,7 +73,7 @@ def profile(request):
 
     context = {
         'decks': decks,
-        'profiles': profiles,
+        'profile': profile,
     }
     return render(request, 'profile.html', context=context)
 
