@@ -13,5 +13,4 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('viewcard/', views.viewcard, name='viewcard')
 
-]
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
