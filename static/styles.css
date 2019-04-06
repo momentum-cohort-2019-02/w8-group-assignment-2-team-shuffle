@@ -1,5 +1,11 @@
 *{
     margin: 0 auto;
+    /* dark green: rgb(117,187,75);
+    light green: rgb(176, 221, 144 );
+    blue: rgb(167, 198,253);
+    pink: rgb(245, 164, 191);
+    light gray: rgb(180,180,180);
+    dark gray: rgb(92,92,92);*/
 }
 
 #logo{
@@ -18,3 +24,52 @@
     display:flex;
     flex-direction: column;
 }
+
+li{
+    display: block;
+    transition-duration: 0.5s;
+    padding:.25rem;
+}
+li:hover{
+    cursor:pointer;
+}
+ul{
+    display: flex;
+    flex-direction: row;
+
+}
+ul li ul{
+    visibility: hidden;
+    opacity:0;
+    transition: all 0.5s ease;
+    margin-top: 1rem;
+    left:0;
+    display:none;
+}
+ul li:hover > ul,
+ul li ul:hover{
+    visibility: visible;
+    opacity: 1;
+    display: block;
+}
+ul li ul li {
+    clear: both;
+    width: 100%;
+}
+.topbar-nav{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    background-color:rgb(167, 198,253);
+
+}
+.nav-bar-item{
+    font-weight: 800;
+    color: white;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+

@@ -22,24 +22,26 @@
     </header>
     <div class="content">
         {% block sidebar %}
-        <ul class="topbar-nav nav-menu">
-            <li id="home" class="nav-bar-item"><a href="{% url 'home' %}">Home</a></li>
-            {% if request.user.is_authenticated %}
-            <li id="profile" class="nav-bar-item"><a href="{% url 'profile' %}">Profile {{ profile.user }}</a></li>
-            <li class="log nav-bar-item"><a href="{% url 'auth_logout' %}">Logout</a></li>
-            {% else %}
-            <li class="log nav-bar-item"><a href="{% url 'auth_login' %}">Register/Login</a></li>
-            {% endif %}
-            <li id="category" nav-bar-item>Category
-                <ul class="category-list">
-                    {% if categories %}
-                        {% for category in categories%}
-                        <li class="category"><a href="{% url 'category' slug=category.slug %}">{{category.deck_category}}</a></li>
-                        {% endfor %}
-                    {% endif %}
-                </ul>
-            </li>
-        </ul>
+        <div clas="nav-menu">
+            <ul class="topbar-nav">
+                <li id="home" class="nav-bar-item"><a href="{% url 'home' %}">Home</a></li>
+                {% if request.user.is_authenticated %}
+                <li id="profile" class="nav-bar-item"><a href="{% url 'profile' %}">Profile {{ profile.user }}</a></li>
+                <li class="log nav-bar-item"><a href="{% url 'auth_logout' %}">Logout</a></li>
+                {% else %}
+                <li class="log nav-bar-item"><a href="{% url 'auth_login' %}">Register/Login</a></li>
+                {% endif %}
+                <li id="category" nav-bar-item>Category
+                    <ul class="dropdown">
+                        {% if categories %}
+                            {% for category in categories%}
+                            <li class="category-item"><a href="{% url 'category' slug=category.slug %}">{{category.deck_category}}</a></li>
+                            {% endfor %}
+                        {% endif %}
+                    </ul>
+                </li>
+            </ul>
+        </div>
         {% endblock %}
         <div class="block-content">
             {% block content %}{% endblock %}
