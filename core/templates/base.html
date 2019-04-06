@@ -25,12 +25,6 @@
         <div clas="nav-menu">
             <ul class="topbar-nav">
                 <li id="home" class="nav-bar-item"><a href="{% url 'home' %}">Home</a></li>
-                {% if request.user.is_authenticated %}
-                <li id="profile" class="nav-bar-item"><a href="{% url 'profile' %}">Profile {{ profile.user }}</a></li>
-                <li class="log nav-bar-item"><a href="{% url 'auth_logout' %}">Logout</a></li>
-                {% else %}
-                <li class="log nav-bar-item"><a href="{% url 'auth_login' %}">Register/Login</a></li>
-                {% endif %}
                 <li id="category" nav-bar-item>Category
                     <ul class="dropdown">
                         {% if categories %}
@@ -40,6 +34,14 @@
                         {% endif %}
                     </ul>
                 </li>
+                {% if request.user.is_authenticated %}
+                <li id="profile" class="nav-bar-item"><a href="{% url 'profile' %}">Profile {{ profile.user }}</a></li>
+                <li class="log nav-bar-item"><a href="{% url 'auth_logout' %}">Logout</a></li>
+                <li id="create-deck" class="nav-bar-item"><a href="{% url 'new_deck' %}">Create deck</a></li>
+                {% else %}
+                <li class="log nav-bar-item"><a href="{% url 'auth_login' %}">Register/Login</a></li>
+                {% endif %}
+                
             </ul>
         </div>
         {% endblock %}
