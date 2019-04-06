@@ -28,6 +28,7 @@
 li{
     display: block;
     transition-duration: 0.5s;
+    padding:.25rem;
 }
 li:hover{
     cursor:pointer;
@@ -35,6 +36,7 @@ li:hover{
 ul{
     display: flex;
     flex-direction: row;
+
 }
 ul li ul{
     visibility: hidden;
@@ -54,13 +56,17 @@ ul li ul li {
     clear: both;
     width: 100%;
 }
-.nav-menu{
+.topbar-nav{
     list-style: none;
     display: flex;
     flex-direction: row;
     padding: 1rem;
-    border-bottom: .25rem solid rgb(245, 164, 191);
-    background-color: rgb(245, 164, 191);
+    background-color:rgb(167, 198,253);
+
+}
+.nav-bar-item{
+    font-weight: 800;
+    color: white;
 }
 a{
     color: black;
