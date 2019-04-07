@@ -37,9 +37,9 @@
                     </ul>
                 </li>
                 {% if request.user.is_authenticated %}
-                <li id="profile" class="nav-bar-item"><a href="{% url 'profile' %}">Profile {{ profile.user }}</a></li>
-                <li class="log nav-bar-item"><a href="{% url 'auth_logout' %}">Logout</a></li>
+                <li id="profile" class="nav-bar-item"><a href="{% url 'profile' %}">{{ user.username }}'s Profile </a></li>
                 <li id="create-deck" class="nav-bar-item"><a href="{% url 'new_deck' %}">Create deck</a></li>
+                <li class="log nav-bar-item"><a href="{% url 'auth_logout' %}">Logout</a></li>
                 {% else %}
                 <li class="log nav-bar-item"><a href="{% url 'auth_login' %}">Register/Login</a></li>
                 {% endif %}
