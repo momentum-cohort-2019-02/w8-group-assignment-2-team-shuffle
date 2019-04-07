@@ -35,7 +35,7 @@
     padding-bottom: 1rem;
 }
 .welcome{
-    background-color: rgb(92,92,92);
+    background-color: rgb(47,47,47);
     color: white;
     margin:0;
     text-align: center;
@@ -99,7 +99,7 @@ ul li ul li {
     font-weight: 800;
 }
 a{
-    color: black;
+    color: rgb(47,47,47);
     text-decoration: none;
 }
 .deck-package{
