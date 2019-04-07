@@ -23,7 +23,7 @@ def home(request):
     profiles = Profile.objects.all()
 
     paginator = Paginator(decks, 10)
-    page = request.GET.get('page', 1)
+    page = request.GET.get('page')
     decks = paginator.get_page(page)
 
     context = {
@@ -35,6 +35,7 @@ def home(request):
 
     return render(request, 'index.html', context=context)
 
+@login_required
 def createDeck(request):
     if request.method == "POST":
         form = DeckForm(request.POST)
@@ -67,17 +68,21 @@ def createCard(request):
         }
     return render(request, 'card.html', context=context)
 
+    #when finish adding cards, take user to profile displaying all their decks
+
 @login_required
 def profile(request):
     profile = Profile.objects.get(user=request.user)
     decks = Deck.objects.filter(created_by=profile)
+    categories = Category.objects.all()
     paginator = Paginator(decks, 10)
     page = request.GET.get('page', 1)
     decks = paginator.get_page(page)
-
+  
     context = {
         'decks': decks,
         'profile': profile,
+        'categories': categories
     }
     return render(request, 'profile.html', context=context)
 
@@ -86,6 +91,22 @@ def viewcard(request):
     context = {'deck': Deck.objects.all()}
 
     return render(request,'viewCard.html', context)
+
+def viewdeck(request, deck_id):
+    deck = Deck.objects.get(id=deck_id)
+    cards = Card.objects.filter(deck=deck)
+    categories = Category.objects.all()
+
+    if deck is None:
+        raise Http404('No task matches the given query.')
+
+    context = {
+        'deck': deck,
+        'cards': cards,
+        'categories': categories,
+    }
+    return render(request,'viewdeck.html', context)
+
 
 def category(request, slug):
     categories = Category.objects.all()

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<script src="/static/card.js"></script>
+
+{% if deck %}
+<div class="third-deck">
+    <div class="second-deck">
+        <div class="one-deck">
+            <h2 class="deck-item" id="deck-title">{{deck.title}}</h2>
+            <p class="deck-item" id="deck-created_by">{{deck.created_by}}</p>
+            <p class="deck-item" id="deck-created_on">{{deck.date_created}}</p>
+            <p class="deck-item" id="deck-category">{{deck.category}}</p>
+        </div>
+    </div>
+</div>
+<div class="mycards">
+    <button class="view-previous" id="view-previous"
+            type="button">
+            Previous Card
+            </button>
+    <button class="view-next" id="view-next"
+                type="button">
+                Next Card
+                </button>
+    {% endif %}
+    {% if cards %}
+        <div id="card-count" style="display:none">{{cards.count}}</div>
+        {% for card in cards %}
+            <div class="card" id="card-{{forloop.counter0}}" style="display:none">
+            <div class="card-question"> {{card.question}} </div>
+            <div class="card-answer"> {{card.answer}} </div>
+            <div class="card-url"> {{card.url}} </div>
+            </div>
+
+        {% endfor %}
+    {% endif %}
+</div>
+
+
+{% endblock %}
