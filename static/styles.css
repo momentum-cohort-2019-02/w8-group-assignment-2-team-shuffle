@@ -71,6 +71,7 @@ ul li ul li {
     clear: both;
     width: 100%;
 }
+/* information and support acquired from https://css-tricks.com/solved-with-css-dropdown-menus/*/
 .topbar-nav{
     list-style: none;
     display: flex;
@@ -79,7 +80,6 @@ ul li ul li {
 }
 .nav-bar-item{
     font-weight: 800;
-    color: white;
 }
 a{
     color: black;
