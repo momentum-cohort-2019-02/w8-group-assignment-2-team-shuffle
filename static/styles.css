@@ -90,6 +90,7 @@ a{
     padding-top: .05rem;
     border-left:.15rem solid rgb(92,92,92);
     border-top:.15rem solid rgb(92,92,92);
+    
     margin: .5rem;
     width:280px;
     height: 180px;
@@ -97,8 +98,7 @@ a{
 .one-deck{
     padding-left: .05rem;
     padding-top: .05rem;
-    border-left:.15rem solid rgb(92,92,92);
-    border-top:.15rem solid rgb(92,92,92);
+    border:.15rem solid rgb(92,92,92);
     margin: .5rem;
     width:300px;
     height:200px;
@@ -106,4 +106,23 @@ a{
     flex-direction: column;
     justify-content: center;
     align-content: center;
+}
+.deck-item{
+    padding-left: 2rem;
+    padding-right: 5rem;
+    padding-top: 1rem;
+    padding-top: 1rem;
+    margin:0;
+}
+#deck-title{
+    border-bottom:.1rem solid rgb(245, 164, 191);
+}
+#deck-created_by{
+    border-bottom:.1rem solid rgb(167, 198,253);
+}
+#deck-created_on{
+    border-bottom:.1rem solid rgb(167, 198,253);
+}
+#deck-category{
+    border-bottom:.1rem solid rgb(167, 198,253);
 }
