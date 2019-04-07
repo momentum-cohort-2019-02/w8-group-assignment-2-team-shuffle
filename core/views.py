@@ -86,11 +86,26 @@ def profile(request):
     }
     return render(request, 'profile.html', context=context)
 
-def viewcard(request):
-    model = Card
-    context = {'deck': Deck.objects.all()}
+# def viewcard(request):
+    
+#     model = Card
+#     context = {'deck': Deck.objects.all()}
 
-    return render(request,'viewCard.html', context)
+#     return render(request,'viewdeck.html', context)
+
+def viewcard(request, card_id):
+    '''
+    Gets card from the database, returns first card in deck'''
+    deck = Deck.objects.get(Deck, id=card_id)
+    card_list = deck.objects.all()
+    card_obj = card_list.first()
+    if deck is None:
+        raise Http404('No task matches the given query.')
+
+    context = {'deck': deck, 'card_obj':card_obj}
+    return render(request, 'viewdeck.html', context)
+
+
 
 def viewdeck(request, deck_id):
     deck = Deck.objects.get(id=deck_id)

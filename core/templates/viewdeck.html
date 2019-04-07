@@ -24,7 +24,7 @@
                 Next Card
                 </button>
     {% endif %}
-    {% if cards %}
+    {% if card %}
         <div id="card-count" style="display:none">{{cards.count}}</div>
         {% for card in cards %}
             <div class="card" id="card-{{forloop.counter0}}" style="display:none">
@@ -34,7 +34,23 @@
             </div>
 
         {% endfor %}
+        {% else %}
+        <p>No card found. Have you tried to add one?</p>
+
+
     {% endif %}
+    <!-- <h1>{{card_obj}}</h1>
+    <hr>
+    {% if card %}
+      <p>{{card.question}}</p>
+      <p>{{card.answer}}</p>
+    
+    {% else %}
+      <p>No card found. Have you tried to add one?</p>
+    {% endif %} -->
+
+
+
 </div>
 
 
