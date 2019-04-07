@@ -9,14 +9,18 @@
         <h3> Decks to shuffle through:</h3>
         <div class="deck-package">
         {% if decks %}
-            <div class="one-deck">
-                {% for deck in decks %}
-                <h2 class="deck-item" id="deck-title">{{deck.title}}</h2>
-                <p class="deck-item" id="deck-created_by">{{deck.created_by}}</p>
-                <p class="deck-item" id="deck-created_on">{{deck.created_on}}</p>
-                <p class="deck-item" id="deck-category">{{deck.category}}</p>
-                {% endfor %}
+            {% for deck in decks %}
+            <div class="third-deck">
+                <div class="second-deck">
+                    <div class="one-deck">
+                        <h2 class="deck-item" id="deck-title">{{deck.title}}</h2>
+                        <p class="deck-item" id="deck-created_by">{{deck.created_by}}</p>
+                        <p class="deck-item" id="deck-created_on">{{deck.date_created}}</p>
+                        <p class="deck-item" id="deck-category">{{deck.category}}</p>
+                    </div>
+                </div>
             </div>
+            {% endfor %}
         {% else %}
         <p>The decks are not connecting. :(. </p>
         {% endif %}
