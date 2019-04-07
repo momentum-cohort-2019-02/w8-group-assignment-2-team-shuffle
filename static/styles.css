@@ -7,23 +7,41 @@
     light gray: rgb(180,180,180);
     dark gray: rgb(92,92,92);*/
     font-family: 'Merienda One', Helvetica, sans-serif;
+    color: rgb(47,47,47);
+}
 
 }
 #logo{
-    height: 2.5rem;
+    height: 70px;
     padding: 1rem;
+    padding-right: .5rem;
     margin: 0;
+}
+#company-name{
+    font-weight: normal;
 }
 .header{
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    align-content: center;
-    align-items: baseline;
 }
 .company-logo{
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items:center;
+    padding:0;
+}
+#company-slogan {
+    padding-top:0;
+    padding-bottom: 1rem;
+}
+.welcome{
+    background-color: rgb(47,47,47);
+    color: white;
+    margin:0;
+    text-align: center;
+    padding: .25rem;
+    font-size: .75rem;
 }
 ul{
     list-style: none;
@@ -82,7 +100,7 @@ ul li ul li {
     font-weight: 800;
 }
 a{
-    color: black;
+    color: rgb(47,47,47);
     text-decoration: none;
 }
 .deck-package{
