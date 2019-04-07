@@ -6,8 +6,9 @@
     pink: rgb(245, 164, 191);
     light gray: rgb(180,180,180);
     dark gray: rgb(92,92,92);*/
-}
+    font-family: 'Merienda One', Helvetica, sans-serif;
 
+}
 #logo{
     height: 2.5rem;
     padding: 1rem;
@@ -24,30 +25,44 @@
     display:flex;
     flex-direction: column;
 }
-
-li{
-    display: block;
-    transition-duration: 0.5s;
-    padding:.25rem;
+ul{
+    list-style: none;
+    background-color: rgb(245, 164, 191);
+    padding-left: 0;
+    margin:0;
 }
-li:hover{
+li{
+    background-color: rgb(245, 164, 191);
+    display: block;
+    float:left;
+    padding:1rem;
+    position:relative;
+    text-decoration:none;
+    transition-duration: 0.5s;
+}
+li:hover,
+li:focus-within{
+    background-color: rgb(213, 132, 159);
     cursor:pointer;
 }
-ul{
-    display: flex;
-    flex-direction: row;
-
+li:focus-within a{
+    outline:none;
 }
 ul li ul{
+    background-color: rgb(245, 164, 191);
     visibility: hidden;
     opacity:0;
+    min-width: 5rem;
+    position: absolute;
     transition: all 0.5s ease;
     margin-top: 1rem;
     left:0;
     display:none;
 }
 ul li:hover > ul,
-ul li ul:hover{
+ul li:focus-within > ul,
+ul li ul:hover,
+ul li ul:focus{
     visibility: visible;
     opacity: 1;
     display: block;
@@ -56,17 +71,15 @@ ul li ul li {
     clear: both;
     width: 100%;
 }
+/* information and support acquired from https://css-tricks.com/solved-with-css-dropdown-menus/*/
 .topbar-nav{
     list-style: none;
     display: flex;
     flex-direction: row;
-    padding: 1rem;
-    background-color:rgb(167, 198,253);
-
+    padding: .75rem;
 }
 .nav-bar-item{
     font-weight: 800;
-    color: white;
 }
 a{
     color: black;
