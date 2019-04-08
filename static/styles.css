@@ -1,13 +1,17 @@
 *{
     margin: 0 auto;
     /* dark green: rgb(117,187,75);
-    light green: rgb(176, 221, 144 );
+    light green: rgb(176, 221, 144);
     blue: rgb(167, 198,253);
     pink: rgb(245, 164, 191);
     light gray: rgb(180,180,180);
     dark gray: rgb(92,92,92);*/
     font-family: 'Merienda One', Helvetica, sans-serif;
     color: rgb(47,47,47);
+}
+
+.block-content{
+    width: 75%;
 }
 
 #logo{
@@ -112,57 +116,111 @@ a{
     border-left:.15rem solid rgb(92,92,92);
     border-top:.15rem solid rgb(92,92,92);
     margin: 3rem;
-    width:280px;
-    height: 180px;
+    width: 37.5rem;
+    height: 22.5rem;
+
 }
 .second-deck{
     padding-left: .05rem;
     padding-top: .05rem;
     border-left:.15rem solid rgb(92,92,92);
     border-top:.15rem solid rgb(92,92,92);
-    
     margin: .5rem;
-    width:290px;
-    height: 190px;
+    width: 37.5rem;
+    height: 22.5rem;
+
 }
 .one-deck{
     padding-left: .05rem;
     padding-top: .05rem;
     border:.15rem solid rgb(92,92,92);
     margin: .5rem;
-    width:300px;
-    height:200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
+    width: 37.5rem;
+    height: 22.5rem;
 }
 .deck-item{
     padding-left: 2rem;
-    padding-right: 5rem;
-    padding-top: 1rem;
-    padding-top: 1rem;
+    padding-right: 5rem; 
+    padding-top: .25rem;
     margin:0;
+    border-bottom:.1rem solid rgb(167, 198,253);
+    height:2rem;
+}
+.deck-item .empty{
+    height: 2rem;
 }
 #deck-title{
     border-bottom:.1rem solid rgb(245, 164, 191);
+    font-size:2rem;
+    height: 2.5rem;
 }
-#deck-created_by{
-    border-bottom:.1rem solid rgb(167, 198,253);
+.card{
+    width:100%;
 }
-#deck-created_on{
-    border-bottom:.1rem solid rgb(167, 198,253);
+#card-question{
+    font-size: .75rem;
 }
-#deck-category{
-    border-bottom:.1rem solid rgb(167, 198,253);
+#card-answer{
+    font-size: .75rem;
+    background-color: white;
+    color: white;
 }
+#card-answer:hover{
+    background-color: rgb(47,47,47);
+}
+.answer-extended:hover{
+    background-color: rgb(47,47,47);
+}
+#card-url{
+    font-size: .75rem;
+    background-color: white;
+}
+#card-url:hover{
+    background-color:rgb(167, 198,253);
+}
+.view-deck{
+    padding-left: 1.5rem;
+}
+.change-card{
+    border-radius: 30%;
+    border-left: .25rem solid rgb(92,92,92);
+    border-top: .25rem solid rgb(92,92,92);
+    margin-left:0;
+}
+.change-card:hover{
+    transform: translateX(-10px);
+}
+#deck-title-card{
+    border-bottom:.1rem solid rgb(245, 164, 191);
+    font-size:2rem;
+    height: 2.5rem;
+}
+#deck-title:hover{
+    background-color:rgb(167, 198,253);
+}
+.deck-item .no-hover:hover{
+    background-color:white;
+}
+#deck-title-card-no-cards{
+    border-bottom:.1rem solid rgb(245, 164, 191);
+    font-size:2rem;
+    height: 2.5rem;
+}
+.description{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding:1rem;
+    border:.15rem solid rgb(92,92,92);
+    border-radius:6px;
 
-.card-answer{
-    background-color: black;
-    color: black;
 }
-
-.card-url{
-    background-color: black;
-    color: black;
+.description p{
+    padding:.5rem;
+}
+.pageheader{
+    margin-top:1rem;
 }
