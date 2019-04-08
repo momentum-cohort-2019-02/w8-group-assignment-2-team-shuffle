@@ -10,6 +10,10 @@
     color: rgb(47,47,47);
 }
 
+.block-content{
+    width: 75%;
+}
+
 #logo{
     height: 200px;
     padding: 1rem;
@@ -190,9 +194,6 @@ a{
 .change-card:hover{
     transform: translateX(-10px);
 }
-.show-card{
-    border-top:.15rem solid rgb(92,92,92);
-}
 #deck-title-card{
     border-bottom:.1rem solid rgb(245, 164, 191);
     font-size:2rem;
@@ -208,4 +209,15 @@ a{
     border-bottom:.1rem solid rgb(245, 164, 191);
     font-size:2rem;
     height: 2.5rem;
+}
+.description{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding:1rem;
+    border:.15rem solid rgb(92,92,92);
+    border-radius:6px;
+
+}
+.description p{
+    padding:.5rem;
 }
