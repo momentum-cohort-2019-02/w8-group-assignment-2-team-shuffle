@@ -7,34 +7,66 @@
 <div class="third-deck">
     <div class="second-deck">
         <div class="one-deck">
-            <h2 class="deck-item" id="deck-title">{{deck.title}}</h2>
-            <p class="deck-item" id="deck-created_by">{{deck.created_by}}</p>
+            <h2 class="deck-item no-hover" id="deck-title">{{deck.title}}</h2>
+            <div class="deck-item empty">&nbsp;</div>
+            <p class="deck-item" id="deck-created_by">By: {{deck.created_by}}</p>
             <p class="deck-item" id="deck-created_on">{{deck.date_created}}</p>
             <p class="deck-item" id="deck-category">{{deck.category}}</p>
+            <div class="deck-item empty">&nbsp;</div>
+            <div class="deck-item empty">&nbsp;</div>
+            <div class="deck-item empty">&nbsp;</div>
+            <div class="deck-item empty">&nbsp;</div>
+            <div class="deck-item empty">&nbsp;</div>
+            <div class="deck-item empty">&nbsp;</div>
+            <div class="deck-item empty">&nbsp;</div>
+        </div>
+    </div>
+    </div>
+</div>
+<div class="mycards">
+
+{% endif %}
+{% if deck %}
+
+<div class="third-deck view-deck">
+    <button class="change-card" id="view-previous" type="button">Previous Card</button>
+    <div class="second-deck view-deck">
+        <button class="change-card" id="view-next" type="button"> Next Card </button>
+        <div class="one-deck">
+            {% if cards %}
+            <h2 class="deck-item no-hover" id="deck-title-card">{{deck.title}}</h2>
+            <div id="card-count" style="display:none">{{cards.count}}</div>
+            <div class="deck-item empty">&nbsp;</div>
+            {% for card in cards %}
+                <div class="card" id="card-{{forloop.counter0}}" style="display:none">
+                <div id="card-question" class="deck-item">Q: {{card.question}} </div>
+                <div class="deck-item empty"></div>
+                <div id="card-answer" class="deck-item"><strong>A: Mouse over for answer.</strong> {{card.answer}} </div>
+                <div class="deck-item empty answer-extended">&nbsp;</div>
+                <div class="deck-item empty answer-extended">&nbsp;</div>
+                <div id="card-url" class="deck-item"><a href="{{card.url}}">More info</a></div>
+                <div class="deck-item empty">&nbsp;</div>
+                </div>
+            {% endfor %}
+            {% else %}
+            <h2 class="deck-item no-hover" id="deck-title-card-no-cards">{{deck.title}}</h2>
+            <div class="deck-item empty">&nbsp;</div>
+            <p class="deck-item">There are no cards in this deck.</p>
+            <div class="deck-item empty">&nbsp;</div>
+            <div class="deck-item empty">&nbsp;</div>
+            <div class="deck-item empty">&nbsp;</div>
+            <div class="deck-item empty">&nbsp;</div>
+            <div class="deck-item empty">&nbsp;</div>
+            <div class="deck-item empty">&nbsp;</div>
+            <div class="deck-item empty">&nbsp;</div>
+            <div class="deck-item empty">&nbsp;</div>
+        {% endif %}
         </div>
     </div>
 </div>
 <div class="mycards">
-    <button class="view-previous" id="view-previous"
-            type="button">
-            Previous Card
-            </button>
-    <button class="view-next" id="view-next"
-                type="button">
-                Next Card
-                </button>
-    {% endif %}
-    {% if cards %}
-        <div id="card-count" style="display:none">{{cards.count}}</div>
-        {% for card in cards %}
-            <div class="card" id="card-{{forloop.counter0}}" style="display:none">
-            <div class="card-question"> {{card.question}} </div>
-            <div class="card-answer"> {{card.answer}} </div>
-            <div class="card-url"> {{card.url}} </div>
-            </div>
 
-        {% endfor %}
-    {% endif %}
+{% endif %}
 </div>
 
 

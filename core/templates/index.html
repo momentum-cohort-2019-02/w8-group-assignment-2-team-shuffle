@@ -2,31 +2,32 @@
 {% block content %}
 
 <div>
-    <div class="mission">
-    <p>At techShuffle we want everyone who is searching for developer jobs to succeed in their technical interviews. How
-        do you prepare for a test or interview? ... with flashcards!!</p>
-    <p>The decks below have questions that are commonly used in interviews, or cover important vocabulary. Each deck is
-        connected to category assocaited with a specific language or framework(eg. Python, JavaScript), or general
-        interview prep. </p>
+    <div class="description">
+        <p>At techShuffle we want everyone who is searching for developer jobs to succeed in their technical interviews. How do you prepare for a test or interview? ... with flashcards!!</p>
+        <p>The decks below have questions that are commonly used in interviews, or cover important vocabulary. Each deck is connected to category assocaited with a specific language or framework(eg. Python, JavaScript), or general interview prep. </p>
+        <p>Now go study and ace that interview!</p>
     </div>
-    <div class="header" >
-    <p>Now go study and ace that interview!</p>
     <div id="show-decks">
         <h3> Decks to shuffle through:</h3>
     </div>
         <div class="deck-package">
             {% if decks %}
             {% for deck in decks %}
-            <div class="container">
-                <div class="third-deck">
-                    <div class="second-deck">
-                        <div class="one-deck">
-                            <h3 class="deck-item" id="deck-title"><a
-                                    href="{% url 'view_deck' deck_id=deck.id %}">{{deck.title}}</a></h3>
-                            <p class="deck-item" id="deck-created_by">By: {{deck.created_by}}</p>
-                            <p class="deck-item" id="deck-created_on">{{deck.date_created}}</p>
-                            <p class="deck-item" id="deck-category">{{deck.category}}</p>
-                        </div>
+
+            <div class="third-deck">
+                <div class="second-deck">
+                    <div class="one-deck">
+                        <h3 class="deck-item" id="deck-title"><a href="{% url 'view_deck' deck_id=deck.id %}">{{deck.title}}</a></h3>
+                        <div class="deck-item empty">&nbsp;</div>
+                        <p class="deck-item" id="deck-created_by">By: {{deck.created_by}}</p>
+                        <p class="deck-item" id="deck-created_on">{{deck.date_created}}</p>
+                        <p class="deck-item" id="deck-category">{{deck.category}}</p>
+                        <div class="deck-item empty">&nbsp;</div>
+                        <div class="deck-item empty">&nbsp;</div>
+                        <div class="deck-item empty">&nbsp;</div>
+                        <div class="deck-item empty">&nbsp;</div>
+                        <div class="deck-item empty">&nbsp;</div>
+                        <div class="deck-item empty">&nbsp;</div>
                     </div>
                 </div>
             </div>
