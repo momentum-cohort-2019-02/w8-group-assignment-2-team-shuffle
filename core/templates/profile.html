@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content%}
+<div class="deck-package">
+
 <h1 id="profile-user-name">{{ user }}'s decks</h1>
     {% if decks %}
         {% for deck in decks %}
+        <div class="deck-package">
+
         <div class="third-deck">
             <div class="second-deck">
                 <div class="one-deck">
@@ -36,3 +40,4 @@
     <p>You haven't created any decks</p>
     {% endif %}
     {% endblock %}
+</div>
