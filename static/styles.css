@@ -218,6 +218,7 @@ a{
     padding:1rem;
     border:.15rem solid rgb(92,92,92);
     border-radius:6px;
+}
 footer{
     display: flex;
     justify-content: center;
