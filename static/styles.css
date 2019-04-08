@@ -187,6 +187,9 @@ a{
     border-top: .25rem solid rgb(92,92,92);
     margin-left:0;
 }
+.change-card:hover{
+    transform: translateX(-10px);
+}
 .show-card{
     border-top:.15rem solid rgb(92,92,92);
 }
@@ -197,4 +200,12 @@ a{
 }
 #deck-title:hover{
     background-color:rgb(167, 198,253);
+}
+.deck-item .no-hover:hover{
+    background-color:white;
+}
+#deck-title-card-no-cards{
+    border-bottom:.1rem solid rgb(245, 164, 191);
+    font-size:2rem;
+    height: 2.5rem;
 }
