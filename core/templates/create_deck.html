@@ -2,8 +2,11 @@
 
 {% block content %}
 {% if user.is_authenticated %}
+<div class="deck-package">
+
 <h1> Create a Deck {{ user.username }} 
 </h1>
+
 <p> Create a new Deck:</p>
 <form method="POST">
   {% csrf_token %}
@@ -16,6 +19,6 @@
 
 {% else %}
 <p> To make a Deck Login or Register! </p>
-
+</div>
 {% endif %}
 {% endblock %}

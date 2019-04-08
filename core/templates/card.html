@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="deck-package">
+
 
 <h2 class="pageheader card_view ">new card</h2>
+
 
 {% if user.is_authenticated %}
 <form method="POST" action="{% url 'new_card' %}">
@@ -14,6 +17,6 @@
 </form> 
 {% else %}
 <p> To make a card Login or Register! </p>
-
+</div>
 {% endif %}
 {% endblock %}

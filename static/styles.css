@@ -109,6 +109,8 @@ a{
 .deck-package{
     display: flex;
     flex-direction: column;
+    padding-bottom: 5%;
+   
 }
 .third-deck{
     padding-left: .05rem;
@@ -216,6 +218,23 @@ a{
     padding:1rem;
     border:.15rem solid rgb(92,92,92);
     border-radius:6px;
+footer{
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: black;
+    text-align: center;
+    opacity: .8;
+    background-color: rgb(245, 164, 191);
+    text-align: center;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 
 }
 .description p{

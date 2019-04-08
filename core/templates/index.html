@@ -9,9 +9,11 @@
     </div>
     <div id="show-decks">
         <h3> Decks to shuffle through:</h3>
+    </div>
         <div class="deck-package">
-        {% if decks %}
+            {% if decks %}
             {% for deck in decks %}
+
             <div class="third-deck">
                 <div class="second-deck">
                     <div class="one-deck">
@@ -30,28 +32,27 @@
                 </div>
             </div>
             {% endfor %}
-              <div class="pagination">
-    <span class="step-links">
-        {% if decks.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ decks.previous_page_number }}">previous</a>
-        {% endif %}
+            <div class="pagination">
+                <span class="step-links">
+                    {% if decks.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ decks.previous_page_number }}">previous</a>
+                    {% endif %}
 
-        <span class="current">
-            Page {{ decks.number }} of {{ decks.paginator.num_pages }}.
-        </span>
+                    <span class="current">
+                        Page {{ decks.number }} of {{ decks.paginator.num_pages }}.
+                    </span>
 
-        {% if decks.has_next %}
-            <a href="?page={{ decks.next_page_number }}">next</a>
-            <a href="?page={{ decks.paginator.num_pages }}">last &raquo;</a>
-        {% endif %}
-    </span>
-</div> 
-        {% else %}
-        <p>The decks are not connecting. :(. </p>
-        {% endif %}
+                    {% if decks.has_next %}
+                    <a href="?page={{ decks.next_page_number }}">next</a>
+                    <a href="?page={{ decks.paginator.num_pages }}">last &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+            {% else %}
+            <p>The decks are not connecting. :(. </p>
+            {% endif %}
         </div>
     </div>
 </div>
 {% endblock %}
-
