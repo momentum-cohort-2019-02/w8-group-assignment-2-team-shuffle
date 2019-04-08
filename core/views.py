@@ -22,7 +22,7 @@ def home(request):
     rates = Rate.objects.all()
     profiles = Profile.objects.all()
 
-    paginator = Paginator(decks, 10)
+    paginator = Paginator(decks, 5)
     page = request.GET.get('page')
     decks = paginator.get_page(page)
 
@@ -75,7 +75,7 @@ def profile(request):
     profile = Profile.objects.get(user=request.user)
     decks = Deck.objects.filter(created_by=profile)
     categories = Category.objects.all()
-    paginator = Paginator(decks, 10)
+    paginator = Paginator(decks, 5)
     page = request.GET.get('page', 1)
     decks = paginator.get_page(page)
   
@@ -119,7 +119,7 @@ def category(request, slug):
     else:
         #if not logged in, you see categories in decks that aren't owned by anyone (public decks only)
         decks = Deck.objects.filter(ownership=False, category=category)
-    paginator = Paginator(decks, 10)
+    paginator = Paginator(decks, 5)
     page = request.GET.get('page', 1)
     decks = paginator.get_page(page)
     context = {
